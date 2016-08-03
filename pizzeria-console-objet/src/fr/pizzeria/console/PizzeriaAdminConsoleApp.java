@@ -54,12 +54,11 @@ public class PizzeriaAdminConsoleApp {
 	
 		
 		while (choix == 0){
-			AfficherMenu ListMenu = new AfficherMenu();
+			Affichage ListMenu = new Affichage();
 	    	ListMenu.affichageM();
 			 try {
 			    // Instructions susceptibles de provoquer des erreurs;
 				 String saisie = nombre.next();
-				 
 				 choix = Integer.parseInt(saisie);
 			 } catch (NumberFormatException e) {
 			     System.out.println("Entrez un chiffre !" + "\n");
@@ -70,8 +69,8 @@ public class PizzeriaAdminConsoleApp {
 		    switch (choix){
 		    
 		    case 1:
-		    	AfficherPizza ListPizza = new AfficherPizza();
-		    	ListPizza.affichage(pizzas);
+		    	Affichage ListPizza = new Affichage();
+		    	ListPizza.affichageP(pizzas);
 		    	choix = 0;
 		    	break;
 		    case 2:
