@@ -1,5 +1,7 @@
 package fr.pizzeria.service;
 
+import java.util.Arrays;
+
 import fr.pizzeria.model.Pizza;
 
 public class StockageTableau implements Stockage {
@@ -10,21 +12,42 @@ public class StockageTableau implements Stockage {
 			new Pizza(6, "ORI", "L'orientale", 13.50), new Pizza(7, "IND", "L'indienne", 14.00) };
 
 	@Override
-	public Pizza[] TrouverPizza() {
-		// TODO Auto-generated method stub
+	public Pizza[] trouverPizza() {
 		return pizzas;
 	}
 
 	@Override
 	public void savePizza(Pizza newPizza) {
-		// TODO Auto-generated method stub
+		Pizza[] newTab = Arrays.copyOf(pizzas, pizzas.length + 1);
+		newPizza.setId(pizzas.length);
+		newTab[pizzas.length] = newPizza;
+		pizzas = newTab;
 
 	}
 
 	@Override
 	public void updatePizza(Pizza editPizza) {
-		// TODO Auto-generated method stub
+		int id = editPizza.getId();
+		pizzas[id] = editPizza;
 
+	}
+
+	@Override
+	public void suppPizza(int j) {
+		Pizza[] newTab1 = Arrays.copyOf(pizzas, pizzas.length - 1);
+		int id = j;
+		int Index = 0;
+		for (int i = 0; i < pizzas.length - 1; i++) {
+			if (i >= id) {
+				Index = i + 1;
+			} else {
+				Index = i;
+			}
+
+			newTab1[i] = pizzas[Index];
+
+		}
+		pizzas = newTab1;
 	}
 
 }

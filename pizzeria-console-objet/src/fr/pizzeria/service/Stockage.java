@@ -4,10 +4,12 @@ import fr.pizzeria.model.Pizza;
 
 public interface Stockage {
 
-	Pizza[] TrouverPizza();
+	Pizza[] trouverPizza();
 
 	void savePizza(Pizza newPizza);
 
 	void updatePizza(Pizza editPizza);
+
+	void suppPizza(int j);
 
 }

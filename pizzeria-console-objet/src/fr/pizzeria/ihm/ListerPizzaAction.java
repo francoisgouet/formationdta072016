@@ -14,10 +14,10 @@ public class ListerPizzaAction extends Action {
 
 	public void execute() {
 		System.out.println("**** Liste de Pizzas ****");
-		Pizza[] pizzas = this.stockage.TrouverPizza();
+		Pizza[] pizzas = this.stockage.trouverPizza();
 		for (int i = 0; i < pizzas.length; i++) {
 			Pizza p = pizzas[i];
-			System.out.println(p.getCode() + " " + p.getNom());
+			System.out.println(p.getCode() + " " + p.getNom() + " " + p.getPrix());
 		}
 	}
 
