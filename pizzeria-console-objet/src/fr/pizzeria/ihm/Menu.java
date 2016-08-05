@@ -1,19 +1,17 @@
 package fr.pizzeria.ihm;
 
-import java.util.Scanner;
-
-import fr.pizzeria.service.Stockage;
+import fr.pizzeria.exception.SaisieEntierException;
 
 public class Menu {
 
 	private static final int CHOIX_SORTIR = 99;
 	private Action[] actions;
-	private Scanner scanner;
+	private IhmHelper ihmHelper;
 
-	public Menu(Stockage stockage, Scanner scanner) {
-		this.actions = new Action[] { new ListerPizzaAction(stockage), new AjouterPizzaAction(stockage, scanner),
-				new ModifierPizzaAction(stockage, scanner), new SupprimerPizzaAction(stockage, scanner) };
-		this.scanner = scanner;
+	public Menu(IhmHelper helper) {
+		this.actions = new Action[] { new ListerPizzaAction(helper), new AjouterPizzaAction(helper),
+				new ModifierPizzaAction(helper), new SupprimerPizzaAction(helper) };
+		this.ihmHelper = helper;
 	}
 
 	public void start() {
@@ -34,22 +32,30 @@ public class Menu {
 			System.out.println(indexMenu + " " + libelleAction);
 
 		}
-		System.out.println(CHOIX_SORTIR + ". Quitter");
+		System.out.println(CHOIX_SORTIR + ". Quitter" + "\n");
 	}
 
 	public boolean choisir() {
 		System.out.println("Veuillez choisir une option");
-		int choix = scanner.nextInt();
-		if (choix <= 0 || choix > actions.length) {
-			if (choix != CHOIX_SORTIR) {
-				System.out.println("Erreur de saisie, veuillez recommencer!");
+		int choix = 0;
+		try {
+			// Instructions susceptibles de provoquer des erreurs;
+
+			choix = ihmHelper.saisirEntier();
+			if (choix <= 0 || choix > actions.length) {
+				if (choix != CHOIX_SORTIR) {
+					System.out.println("Erreur de saisie, veuillez recommencer!" + "\n");
+				}
+			} else {
+
+				Action LaBonneAction = actions[choix - 1];
+				LaBonneAction.execute();
+
 			}
-		} else {
-
-			Action LaBonneAction = actions[choix - 1];
-			LaBonneAction.execute();
-
+		} catch (SaisieEntierException e) {
+			System.out.println(e.getMessage());
 		}
+
 		return choix == CHOIX_SORTIR;
 	}
 

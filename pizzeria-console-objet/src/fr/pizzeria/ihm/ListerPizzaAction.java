@@ -1,24 +1,21 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.model.Pizza;
-import fr.pizzeria.service.Stockage;
 
 public class ListerPizzaAction extends Action {
 
-	private Stockage stockage;
-
-	public ListerPizzaAction(Stockage stockage) {
-		super("Lister les pizzas");
-		this.stockage = stockage;
+	public ListerPizzaAction(IhmHelper helper) {
+		super("Lister les pizzas", helper);
 	}
 
 	public void execute() {
 		System.out.println("**** Liste de Pizzas ****");
-		Pizza[] pizzas = this.stockage.trouverPizza();
+		Pizza[] pizzas = this.helper.getStockage().trouverPizza();
 		for (int i = 0; i < pizzas.length; i++) {
 			Pizza p = pizzas[i];
 			System.out.println(p.getCode() + " " + p.getNom() + " " + p.getPrix());
 		}
+		System.out.println("\n");
 	}
 
 }

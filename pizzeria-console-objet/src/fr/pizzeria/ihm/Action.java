@@ -3,14 +3,12 @@ package fr.pizzeria.ihm;
 public class Action {
 
 	private String libelle;
+	protected IhmHelper helper;
 
-	public Action(String libelle) {
+	public Action(String libelle, IhmHelper helper) {
 		super();
 		this.libelle = libelle;
-	}
-
-	public Action() {
-
+		this.helper = helper;
 	}
 
 	public void execute() {

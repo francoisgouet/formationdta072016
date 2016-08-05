@@ -2,6 +2,7 @@ package fr.pizzeria.service;
 
 import java.util.Arrays;
 
+import fr.pizzeria.exception.SaisieCodeException;
 import fr.pizzeria.model.Pizza;
 
 public class StockageTableau implements Stockage {
@@ -23,6 +24,13 @@ public class StockageTableau implements Stockage {
 		newTab[pizzas.length] = newPizza;
 		pizzas = newTab;
 
+	}
+
+	public void saisirCode(Pizza newPizza) throws SaisieCodeException {
+		if (newPizza.getCode().length() < 3 || newPizza.getCode().length() > 3) {
+			SaisieCodeException CodeException = new SaisieCodeException("Attention rentrer un code a 3 chiffres");
+			throw CodeException;
+		}
 	}
 
 	@Override
