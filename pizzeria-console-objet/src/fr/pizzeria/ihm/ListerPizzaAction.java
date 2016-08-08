@@ -1,5 +1,7 @@
 package fr.pizzeria.ihm;
 
+import java.util.Collection;
+
 import fr.pizzeria.model.Pizza;
 
 public class ListerPizzaAction extends Action {
@@ -10,10 +12,9 @@ public class ListerPizzaAction extends Action {
 
 	public void execute() {
 		System.out.println("**** Liste de Pizzas ****");
-		Pizza[] pizzas = this.helper.getStockage().trouverPizza();
-		for (int i = 0; i < pizzas.length; i++) {
-			Pizza p = pizzas[i];
-			System.out.println(p.getCode() + " " + p.getNom() + " " + p.getPrix());
+		Collection<Pizza> pizzas = this.helper.getStockage().trouverPizza();
+		for (Pizza pizzaEnCours : pizzas) {
+			System.out.println(pizzaEnCours.getCode() + " " + pizzaEnCours.getNom() + " " + pizzaEnCours.getPrix());
 		}
 		System.out.println("\n");
 	}

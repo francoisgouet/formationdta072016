@@ -8,9 +8,9 @@ public class SupprimerPizzaAction extends Action {
 
 	@Override
 	public void execute() {
-		System.out.println("Vous voulez supprimez une pizza veuillez choisir laquelle (nombre)");
-		int id = helper.getScanner().nextInt();
-		helper.getStockage().suppPizza(id - 1);
+		System.out.println("Vous voulez supprimez une pizza veuillez choisir laquelle (Code)");
+		String ancienCode = helper.getScanner().next();
+		helper.getStockage().suppPizza(ancienCode);
 
 		System.out.println("Pizza supprimer avec succes \n");
 
