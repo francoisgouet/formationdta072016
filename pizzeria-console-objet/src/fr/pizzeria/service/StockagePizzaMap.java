@@ -5,13 +5,14 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import fr.pizzeria.exception.SaisieCodeException;
+import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 
-public class StockageTableau implements Stockage {
+public class StockagePizzaMap implements Stockage<Pizza> {
 
 	public Map<String, Pizza> pizzas = new TreeMap<>();
-
-	public StockageTableau() {
+	
+	public StockagePizzaMap() {
 		this.pizzas.put("PEP", new Pizza("PEP", "Pépéroni", 12.50));
 		this.pizzas.put("MAR", new Pizza("MAR", "Margherita", 14.00));
 		this.pizzas.put("REI", new Pizza("REI", "La Reine", 11.50));
@@ -20,16 +21,15 @@ public class StockageTableau implements Stockage {
 		this.pizzas.put("SAV", new Pizza("SAV", "La savoyarde", 13.00));
 		this.pizzas.put("ORI", new Pizza("ORI", "L'orientale", 13.50));
 		this.pizzas.put("IND", new Pizza("IND", "L'indienne", 14.00));
-
 	}
 
 	@Override
-	public Collection<Pizza> trouverPizza() {
+	public Collection<Pizza> findAll() {
 		return pizzas.values();
 	}
 
 	@Override
-	public void savePizza(Pizza newPizza) {
+	public void save(Pizza newPizza) {
 		this.pizzas.put(newPizza.getCode(), newPizza);
 	}
 
@@ -41,21 +41,20 @@ public class StockageTableau implements Stockage {
 	}
 
 	@Override
-	public void updatePizza(Pizza editPizza, String ancienCode) {
+	public void update(Pizza editPizza, String ancienCode) {
 		this.pizzas.remove(ancienCode);
 		this.pizzas.put(editPizza.getCode(), editPizza);
-
 	}
 
 	@Override
-	public void suppPizza(String ancienCode) {
+	public void delete(String ancienCode) {
 		this.pizzas.remove(ancienCode);
 	}
 
 	@Override
-	public void savePizza(String code, String nom) {
+	public Pizza find(String id) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
-
+	
 }

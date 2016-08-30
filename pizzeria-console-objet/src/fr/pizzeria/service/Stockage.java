@@ -2,18 +2,15 @@ package fr.pizzeria.service;
 
 import java.util.Collection;
 
+import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 
-public interface Stockage {
+public interface Stockage<T> {
 
-	Collection<Pizza> trouverPizza();
-
-	void savePizza(Pizza newPizza);
-
-	void updatePizza(Pizza editPizza, String code);
-
-	void suppPizza(String ancienCode);
-
-	void savePizza(String code, String nom);
-
+	Collection<T> findAll();
+	
+	T find(String id);
+	void save(T newItem);
+	void update(T editItem, String code);
+	void delete(String ancienCode);	
 }
