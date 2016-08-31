@@ -2,9 +2,6 @@ package fr.pizzeria.service;
 
 import java.util.Collection;
 
-import fr.pizzeria.model.Client;
-import fr.pizzeria.model.Pizza;
-
 public interface Stockage<T> {
 
 	Collection<T> findAll();

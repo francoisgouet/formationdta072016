@@ -12,9 +12,13 @@ public class ListerLivreurAction extends Action {
 	public void execute() {
 		System.out.println("**** Liste de Livreurs ****");
 		Collection<Livreur> livreurs = this.helper.getStockageLivreur().findAll();
-		for (Livreur livreurEnCours : livreurs) {
+		/**J7 **/
+		 /*for (Livreur livreurEnCours : livreurs) {
+		 
 			System.out.println(livreurEnCours.toString());
-		}
+		}*/
+		/** J8 **/
+		livreurs.forEach(p -> System.out.println(p));
 		System.out.println("\n");
 		}
 	}

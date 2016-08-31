@@ -2,7 +2,6 @@ package fr.pizzeria.ihm;
 
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.model.Client;
-import fr.pizzeria.model.Pizza;
 
 public class CrediterClientAction extends Action {
 

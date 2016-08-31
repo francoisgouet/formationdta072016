@@ -1,5 +1,6 @@
 package fr.pizzeria.model;
 
+import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
 
 public class Livreur extends AbstractPersonne implements CompteStat{
@@ -25,7 +26,7 @@ public class Livreur extends AbstractPersonne implements CompteStat{
 		super(i,string,string2);
 	}
 	
-	public Livreur(int i, String string, String string2, int j, int k) {
+	public Livreur(int i, String string, String string2, int j, int k) throws CreditException {
 		super(i,string,string2,j);
 		this.montantDecouvertAutorise = k;
 	}

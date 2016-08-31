@@ -13,10 +13,11 @@ public class ListerPizzaAction extends Action {
 	public void execute() {
 		System.out.println("**** Liste de Pizzas ****");
 		Collection<Pizza> pizzas = this.helper.getStockagePizza().findAll();
-		for (Pizza pizzaEnCours : pizzas) {
+		/*for (Pizza pizzaEnCours : pizzas) {
 			System.out.println(pizzaEnCours.getCode() + " " + pizzaEnCours.getNom() + " " + pizzaEnCours.getPrix());
 		}
-		System.out.println("\n");
+		System.out.println("\n");*/
+		pizzas.forEach(System.out::println);
 	}
 
 }

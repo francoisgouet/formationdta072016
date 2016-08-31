@@ -4,13 +4,14 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
-import fr.pizzeria.model.AbstractPersonne;
+import fr.pizzeria.exception.CreditException;
+import fr.pizzeria.exception.DebitException;
 import fr.pizzeria.model.Livreur;
 
 public class StockageLivreurMap implements Stockage<Livreur>{
-	public Map<String, Livreur> livreurs = new TreeMap();
+	public Map<String, Livreur> livreurs = new TreeMap<String, Livreur>();
 	
-	public StockageLivreurMap() {
+	public StockageLivreurMap() throws CreditException,DebitException {
 		this.livreurs.put("12",new Livreur(12,"Hugues","Jean"));
 		this.livreurs.put("15",new Livreur(15,"Dadou","Dadi",-200,100));
 	}

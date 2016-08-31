@@ -1,7 +1,6 @@
 package fr.pizzeria.ihm;
 
 import fr.pizzeria.model.Client;
-import fr.pizzeria.model.Pizza;
 
 public class AjouterClientAction extends Action {
 

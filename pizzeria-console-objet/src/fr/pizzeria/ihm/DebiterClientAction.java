@@ -2,8 +2,6 @@ package fr.pizzeria.ihm;
 
 import fr.pizzeria.exception.DebitException;
 import fr.pizzeria.model.Client;
-import fr.pizzeria.model.Pizza;
-import fr.pizzeria.service.StockageClientMap;
 
 public class DebiterClientAction extends Action {
 

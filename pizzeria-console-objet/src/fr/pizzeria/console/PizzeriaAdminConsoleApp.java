@@ -3,6 +3,7 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.exception.CreditException;
+import fr.pizzeria.exception.DebitException;
 import fr.pizzeria.ihm.IhmHelper;
 import fr.pizzeria.ihm.Menu;
 import fr.pizzeria.model.Client;
@@ -15,7 +16,7 @@ import fr.pizzeria.service.StockagePizzaMap;
 
 public class PizzeriaAdminConsoleApp {
 
-	public static void main(String[] args) throws CreditException {
+	public static void main(String[] args) throws CreditException, DebitException {
 
 		Scanner scanner = new Scanner(System.in);
 

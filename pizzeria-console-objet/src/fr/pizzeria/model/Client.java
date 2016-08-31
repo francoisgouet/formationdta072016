@@ -2,7 +2,6 @@ package fr.pizzeria.model;
 
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
-import fr.pizzeria.ihm.CrediterClientAction;
 
 public class Client extends AbstractPersonne implements CompteStat {
 	
@@ -24,14 +23,12 @@ public class Client extends AbstractPersonne implements CompteStat {
 		if (nouveauSolde > 5000){
 			throw new CreditException(ancienSolde,nouveauSolde,this);
 		}
+		setSolde(nouveauSolde);
 	}
 	
 	@Override
 	public void debiterCompte(double montant) throws DebitException{
-		this.setSolde(this.getSolde() - montant);
-		if (this.getSolde() < 0){
-			throw new DebitException();
-		}
+		
 	}
 
 	@Override

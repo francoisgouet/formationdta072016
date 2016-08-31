@@ -37,14 +37,19 @@ public class Menu {
 	public void affichageM() {
 		System.out.println("***** Pizzeria Administration *****");
 
-		for (Integer numero : actions.keySet()) {
+		/*for (Integer numero : actions.keySet()) {
 			Action ActionEnCours = actions.get(numero);
 			String libelleAction = ActionEnCours.getLibelle();
 			System.out.println(numero + " " + libelleAction);
 
-		}
+		}*/
+		actions.forEach((numero,valeur)->{
+			Action ActionEnCours = actions.get(numero);
+			String libelleAction = ActionEnCours.getLibelle();
+			System.out.println(numero + " " + libelleAction);
+			});
 		System.out.println(CHOIX_SORTIR + ". Quitter" + "\n");
-	}
+		}
 
 	public boolean choisir() {
 		System.out.println("Veuillez choisir une option");

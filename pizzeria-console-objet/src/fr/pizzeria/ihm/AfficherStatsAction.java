@@ -2,12 +2,10 @@ package fr.pizzeria.ihm;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-import fr.pizzeria.model.AbstractPersonne;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.CompteStat;
 import fr.pizzeria.model.Livreur;
@@ -28,12 +26,12 @@ public class AfficherStatsAction extends Action {
 		
 		int nb_comptes = collec.size();
 		
-		double total=0;
-		for (CompteStat t:collec){
+		/** Java 7 **/ 
+		/*double total=0;
+		 * for (CompteStat t:collec){
 			total += t.getSolde();
 		}
 		double moyenne = total/nb_comptes;
-		
 		CompteStat mini = Collections.min(collec, new Comparator<CompteStat>() {
 
 			@Override
@@ -50,11 +48,21 @@ public class AfficherStatsAction extends Action {
 			}
 		});
 		Double soldePlusEleve = maxi.getSolde();
-
-		System.out.println("Nombres de comptes = "+ nb_comptes);
 		System.out.println("Total Solde= "+ total + "€");
 		System.out.println("Moyenne Solde= "+ moyenne);
 		System.out.println("Solde le plus faible = "+ soldePlusFaible);
-		System.out.println("Solde le plus eleve = "+ soldePlusEleve);
+		System.out.println("Solde le plus eleve = "+ soldePlusEleve);*/
+		/** Java 8 **/
+		double moyenneJava8 = collec.stream().collect(Collectors.averagingDouble(CompteStat::getSolde));
+		double totalJava8 = collec.stream().map(t -> t.getSolde()).reduce((t1,t2) -> t1+t2).get().doubleValue();
+		Comparator <CompteStat> comp = (p1,p2)-> Double.compare(p1.getSolde(),p2.getSolde()) ;
+		Optional<CompteStat> f = collec.stream().min(comp);
+		Optional<CompteStat> g = collec.stream().max(comp);
+		System.out.println("Nombres de comptes = "+ nb_comptes);
+		System.out.println("Total Solde= "+ totalJava8 + "€");
+		System.out.println("Moyenne Solde J8= "+ moyenneJava8);
+		System.out.println("Solde le plus faible = "+f.get().getSolde());
+		System.out.println("Solde le plus eleve = "+g.get().getSolde());
+		
 	}
 }

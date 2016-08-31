@@ -11,8 +11,10 @@ public class StockageClientMap implements Stockage<Client> {
 	public Map<String, Client> clients = new TreeMap<>();
 	
 	public StockageClientMap() throws CreditException {
-		this.clients.put("12",new Client(12,"Jules","Robert",200));
-		this.clients.put("15",new Client(15,"Hugues","Robert",5000));
+		this.clients.put("12",new Client(12,"Jules","Robert",-200));
+		this.clients.put("15",new Client(15,"Hugues","Robert",700));
+		this.clients.put("1",new Client(1,"Marcel","Robert",5000));
+		this.clients.put("2",new Client(2,"Francois","Robert",400));
 	}
 	
 	@Override

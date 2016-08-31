@@ -7,13 +7,13 @@ import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Livreur;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.service.Stockage;
-import fr.pizzeria.service.StockageLivreurMap;
 
 public class IhmHelper {
 
 	private Stockage<Pizza> stockagePizza;
 	private Stockage<Client> stockageClient;
 	private Stockage<Livreur> stockageLivreur;
+	
 	public Stockage<Livreur> getStockageLivreur() {
 		return stockageLivreur;
 	}

@@ -12,12 +12,12 @@ public abstract class AbstractPersonne {
 	public AbstractPersonne() {
 	}
 
-	public AbstractPersonne(long id, String nom, String prenom, double solde) {
+	public AbstractPersonne(long id, String nom, String prenom, double solde) throws CreditException {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.solde=solde;
+		crediterCompte(solde);
 	}
 	
 	public AbstractPersonne(long id, String nom, String prenom) {
@@ -66,14 +66,17 @@ public abstract class AbstractPersonne {
 	}
 	
 	public void crediterCompte(double montant) throws CreditException{
-		this.solde += montant;
+		solde += montant;
 	}
 
 	public void debiterCompte(double montant) throws DebitException{
-		this.setSolde(this.getSolde() - montant);
-		if (this.getSolde() < 0){
-			throw new DebitException();
+		solde -= montant;
+		double ancienSolde = this.getSolde();
+		double nouveauSolde = this.getSolde() - montant;
+		if (nouveauSolde < 0){
+			throw new DebitException(ancienSolde,nouveauSolde,this);
 		}
+		setSolde(nouveauSolde);
 	}
 	public String toString(){
 		String str = this.id +"->"+ this.prenom +" "+ this.nom +"("+this.getSolde()+"€)";

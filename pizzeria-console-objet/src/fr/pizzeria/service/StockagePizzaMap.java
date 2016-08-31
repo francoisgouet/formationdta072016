@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import fr.pizzeria.exception.SaisieCodeException;
-import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 
 public class StockagePizzaMap implements Stockage<Pizza> {
