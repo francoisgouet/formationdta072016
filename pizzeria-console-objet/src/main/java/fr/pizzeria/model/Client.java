@@ -4,7 +4,7 @@ import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
 
 public  class Client extends AbstractPersonne implements CompteStat {
-	
+	oublie de commentaires
 	public Client(){}
 	
 	public Client(long id, String nom, String prenom, double solde) throws CreditException, DebitException {
