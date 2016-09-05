@@ -5,7 +5,10 @@ import fr.pizzeria.exception.DebitException;
 
 public  class Client extends AbstractPersonne implements CompteStat {
 	
-	public Client(){}
+	public Client(){
+
+		setSolde(0);
+	}
 	
 	public Client(long id, String nom, String prenom, double solde) throws CreditException, DebitException {
 		super(id,nom,prenom,solde);
@@ -22,10 +25,19 @@ public  class Client extends AbstractPersonne implements CompteStat {
 	
 	@Override
 	public void crediterCompte(double montant) throws CreditException{
+		
 		double ancienSolde = this.getSolde();
 		double nouveauSolde = this.getSolde() + montant;
 		if (nouveauSolde > 5000){
 			throw new CreditException(ancienSolde,nouveauSolde,this);
+		}
+		else if (montant < 0){
+			try {
+				debiterCompte(montant);
+			} catch (DebitException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else
 			setSolde(nouveauSolde);
@@ -33,7 +45,14 @@ public  class Client extends AbstractPersonne implements CompteStat {
 	
 	@Override
 	public void debiterCompte(double montant) throws DebitException{
-		
+		double ancienSolde = this.getSolde();
+		double nouveauSolde = this.getSolde() - montant;
+		System.err.println(nouveauSolde);
+		if (nouveauSolde < 0){
+			throw new DebitException();
+		}
+		else
+			setSolde(nouveauSolde);
 	}
 
 	@Override
