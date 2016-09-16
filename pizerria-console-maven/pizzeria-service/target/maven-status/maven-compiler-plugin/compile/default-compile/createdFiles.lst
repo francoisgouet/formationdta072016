@@ -1,5 +1,10 @@
+fr\pizzeria\exception\SaisieEntierException.class
+fr\pizzeria\service\StockagePizzaJpa.class
 fr\pizzeria\service\Stockage.class
-fr\pizzeria\service\StockageLivreurMap.class
+fr\pizzeria\service\StockageClientJPA.class
+fr\pizzeria\exception\SaisieCodeException.class
 fr\pizzeria\service\StockagePizzaMap.class
+fr\pizzeria\service\StockagePizzaDB.class
+fr\pizzeria\service\StockageLivreurMap.class
 fr\pizzeria\service\StockageClientMap.class
 fr\pizzeria\service\StockagePizzaFichier.class

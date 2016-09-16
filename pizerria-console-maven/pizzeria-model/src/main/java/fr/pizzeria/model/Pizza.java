@@ -17,10 +17,9 @@ import org.apache.commons.lang3.StringUtils;
 
 @Entity
 @NamedQuery(name="pizza.findByCode", query="select p from Pizza p where p.code=:c")
-//@Table(name ="Pizza2")
 public class Pizza {
 
-	Pizza(){}
+	public Pizza(){}
 
 	private static int NbPizza;
 
@@ -89,19 +88,11 @@ public class Pizza {
 		this.categorie = p;
 	}
 
-	public Pizza(String code2, Double prix2, String nom2, CategoriePizza valueOf) {
-		code = code2;
-		prix2 = prix;
-		nom2 = nom;
-		categorie = valueOf;
-	}
-
 	@Override
 	public String toString() {
-
-		String str = StringUtils.rightPad(code,5) + "\t"+ 
+		String str = StringUtils.rightPad(code,3) + "\t"+ 
 				StringUtils.rightPad(Double.toString(prix),3) +"\t"+ 
-				StringUtils.rightPad(nom,5) +"\t"+ 
+				StringUtils.rightPad(nom,3) +"\t"+ 
 				StringUtils.rightPad(categorie.getName(),3); 
 		return str;
 	}
@@ -121,6 +112,4 @@ public class Pizza {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 }
