@@ -10,6 +10,7 @@
 	<groupId>dta</groupId>
 	<artifactId>pizerria-admin-web</artifactId>
 	<packaging>war</packaging>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -42,7 +43,13 @@
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
+
 	<build>
 		<finalName>pizerria-admin-web</finalName>
 	</build>

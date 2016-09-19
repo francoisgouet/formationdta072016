@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import fr.pizzeria.model.Pizza;
 import fr.pizzeria.service.Stockage;
 import fr.pizzeria.service.StockagePizzaJpa;
 
+@WebServlet("/pizzas/edit")
 public class EditerPizzaController extends HttpServlet{
 
 	@Override
@@ -25,6 +27,7 @@ public class EditerPizzaController extends HttpServlet{
 		String nom = req.getParameter("nom");
 		CategoriePizza categorie = CategoriePizza.valueOf(req.getParameter("categorie"));
 		Double prix = Double.valueOf(req.getParameter("prix"));
+		String url = req.getParameter("file");
 		Pizza pi = new Pizza(p,nom,prix,categorie);
 		stbdd.update(pi,p);
 		resp.sendRedirect(req.getContextPath() + "/pizzas/list");

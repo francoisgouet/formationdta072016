@@ -1,9 +1,13 @@
 package fr.pizzeria.admin.web;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Collection;
 
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +17,10 @@ import fr.pizzeria.model.Pizza;
 import fr.pizzeria.service.Stockage;
 import fr.pizzeria.service.StockagePizzaJpa;
 
+@WebServlet("pizzas/new")
 public class NouvellePizzaController extends HttpServlet{
+	
+	@Inject private Event<CreerPizzaEvent> emetteurEvent;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,6 +47,15 @@ public class NouvellePizzaController extends HttpServlet{
 		Double prix = Double.valueOf(req.getParameter("prix"));
 		Pizza pi = new Pizza(p,nom,prix,categorie);
 		stbdd.save(pi);
+		
+	
+		CreerPizzaEvent e = new CreerPizzaEvent();
+		e.setCal(Calendar.getInstance());
+		e.setPizza(pi);
+		emetteurEvent.fire(e);
+		e.setCal(Calendar.getInstance());
+		e.setPizza(pi);
+		
 		resp.sendRedirect(req.getContextPath() + "/pizzas/list");
 	}
 

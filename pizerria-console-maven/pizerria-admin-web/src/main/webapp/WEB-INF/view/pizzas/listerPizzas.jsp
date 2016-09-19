@@ -54,8 +54,7 @@
 						</form>
 					</td>
 					<td>
-						<form action="<c:url value='/pizzas/delete'/>"
-							method="post">
+						<form action="<c:url value='/pizzas/delete'/>" method="post">
 							<input type="hidden" name="codePizza"
 								value="${pizzaCourante.code}"></input> <input type="submit"
 								value="Supprimer" class="btn btn-default"></input>

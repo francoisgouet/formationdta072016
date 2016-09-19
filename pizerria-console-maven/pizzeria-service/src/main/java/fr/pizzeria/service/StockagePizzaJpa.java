@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import fr.pizzeria.model.Pizza;
+
 
 public class StockagePizzaJpa implements Stockage<Pizza> {
 
@@ -65,7 +69,7 @@ public class StockagePizzaJpa implements Stockage<Pizza> {
 			// merger
 			x.merge(editItem);
 		};
-		
+
 		mutualiser(c);
 	}
 

@@ -19,8 +19,7 @@
 				<div class="col-md-4">
 					<input id="textinput" name="mail" type="text"
 						placeholder="moi@example.com" class="form-control input-md">
-					<input id="textinput" name="url" type="hidden"
-						value="pizzas/list">
+					<input id="textinput" name="url" type="hidden" value="pizzas/list">
 
 				</div>
 			</div>
@@ -30,8 +29,7 @@
 				<label class="col-md-4 control-label" for="psd">Mot de passe</label>
 				<div class="col-md-4">
 					<input id="psd" name="psd" type="password"
-						placeholder="" class="form-control input-md">
-
+						class="form-control input-md">
 				</div>
 			</div>
 

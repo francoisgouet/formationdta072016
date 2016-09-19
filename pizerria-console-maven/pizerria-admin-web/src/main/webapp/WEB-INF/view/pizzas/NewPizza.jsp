@@ -23,8 +23,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="textinput1">Code</label>
 				<div class="col-md-4">
-					<input id="textinput1" name="code" type="text"
-						placeholder="code" class="form-control input-md" required="">
+					<input id="textinput1" name="code" type="text" placeholder="code"
+						class="form-control input-md" required="">
 
 				</div>
 			</div>
@@ -33,8 +33,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="textinput2">Nom</label>
 				<div class="col-md-4">
-					<input id="textinput2" name="nom" type="text"
-						placeholder="nom" class="form-control input-md" required="">
+					<input id="textinput2" name="nom" type="text" placeholder="nom"
+						class="form-control input-md" required="">
 
 				</div>
 			</div>
@@ -43,8 +43,8 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="textinput">Prix</label>
 				<div class="col-md-4">
-					<input id="textinput" name="prix" type="text"
-						placeholder="prix" class="form-control input-md" required="">
+					<input id="textinput" name="prix" type="text" placeholder="prix"
+						class="form-control input-md" required="">
 
 				</div>
 			</div>
@@ -54,11 +54,11 @@
 				<label class="col-md-4 control-label" for="buttondropdown">Categorie</label>
 				<div class="col-md-4">
 					<div class="input-group">
-						<input id="buttondropdown" name="categorie"
-							class="form-control" placeholder="categorie" type="text" required="">
+						<input id="buttondropdown" name="categorie" class="form-control"
+							placeholder="categorie" type="text" required="">
 						<div class="input-group-btn">
-							<button id="btn" type="button" class="btn btn-default dropdown-toggle"
-								data-toggle="dropdown">
+							<button id="btn" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 								Action <span class="caret"></span>
 							</button>
 							<ul id="select" class="dropdown-menu pull-right">
@@ -75,8 +75,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="filebutton">Image</label>
 				<div class="col-md-4">
-					<input id="filebutton" name="file" class="input-file"
-						type="file">
+					<input id="filebutton" name="file" class="input-file" type="file">
 				</div>
 			</div>
 
@@ -84,8 +83,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="singlebutton"></label>
 				<div class="col-md-4">
-					<button id="singlebutton" 
-						class="btn btn-primary">Envoyer</button>
+					<button id="singlebutton" class="btn btn-primary">Envoyer</button>
 				</div>
 			</div>
 

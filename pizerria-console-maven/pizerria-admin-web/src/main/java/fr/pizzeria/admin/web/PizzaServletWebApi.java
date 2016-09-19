@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,8 @@ import java.util.HashMap;
 import fr.pizzeria.service.StockagePizzaDB;
 import fr.pizzeria.service.StockagePizzaJpa;
 
+
+@WebServlet("/delete")
 public class PizzaServletWebApi extends HttpServlet{
 
 	@Override
@@ -53,7 +56,7 @@ public class PizzaServletWebApi extends HttpServlet{
 		for (String s:parts){
 			//resp.getWriter().write(s);
 			String[] t = s.split("=");
-		    map.put(t[0], t[1]);
+			map.put(t[0], t[1]);
 		}
 		//resp.getWriter().write(map.get("name"));
 		String nom = map.get("name");
