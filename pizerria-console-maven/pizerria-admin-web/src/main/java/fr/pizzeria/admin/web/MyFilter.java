@@ -17,7 +17,9 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns={"/*"})
 public class MyFilter implements Filter {
+	
 	private FilterConfig config = null;
+	
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		this.config = config;

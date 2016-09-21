@@ -38,9 +38,6 @@ public class Pizza {
 	@Column(name="url_image")
 	private String url ="";
 
-	@ManyToMany()
-	private Set<Commande_Pizza> cmds;
-
 	public String getUrl() {
 		return url;
 	}
@@ -86,6 +83,14 @@ public class Pizza {
 		this.nom = nom;
 		this.prix = prix;
 		this.categorie = p;
+	}
+
+	public Pizza(String string, String string2, String string3, int i, String string4) {
+		this.categorie = CategoriePizza.valueOf(string);
+		this.code = string2;
+		this.nom = string3;
+		this.prix = i;
+		this.url = string4;
 	}
 
 	@Override

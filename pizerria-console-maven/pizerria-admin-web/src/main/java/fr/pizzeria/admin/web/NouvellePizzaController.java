@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Collection;
 
+import javax.ejb.EJB;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.pizzeria.ejb.PizzaServiceEJB;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 import fr.pizzeria.service.Stockage;
@@ -21,7 +23,8 @@ import fr.pizzeria.service.StockagePizzaJpa;
 public class NouvellePizzaController extends HttpServlet{
 	
 	@Inject private Event<CreerPizzaEvent> emetteurEvent;
-
+	@EJB private PizzaServiceEJB stockage;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		/*Stockage<Pizza> stbdd = PersistanceUtils.getInstance().getStockagePizza();
@@ -39,23 +42,20 @@ public class NouvellePizzaController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Stockage<Pizza> stbdd = PersistanceUtils.getInstance().getStockagePizza();
-		Collection<Pizza> pizzs =  stbdd.findAll();
+		
+		Collection<Pizza> pizzs =  stockage.findAll();
 		String p = req.getParameter("code");
 		String nom = req.getParameter("nom");
 		CategoriePizza categorie = CategoriePizza.valueOf(req.getParameter("categorie"));
 		Double prix = Double.valueOf(req.getParameter("prix"));
 		Pizza pi = new Pizza(p,nom,prix,categorie);
-		stbdd.save(pi);
-		
-	
 		CreerPizzaEvent e = new CreerPizzaEvent();
 		e.setCal(Calendar.getInstance());
 		e.setPizza(pi);
+		stockage.save(pi);
 		emetteurEvent.fire(e);
 		e.setCal(Calendar.getInstance());
 		e.setPizza(pi);
-		
 		resp.sendRedirect(req.getContextPath() + "/pizzas/list");
 	}
 

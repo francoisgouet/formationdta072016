@@ -12,6 +12,7 @@
 		<module>pizzeria-ihm</module>
 		<module>pizzeria-client</module>
 		<module>pizerria-admin-web</module>
+		
 	</modules>
 
 	<properties>
@@ -77,6 +78,11 @@
 				<groupId>jstl</groupId>
 				<artifactId>jstl</artifactId>
 				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

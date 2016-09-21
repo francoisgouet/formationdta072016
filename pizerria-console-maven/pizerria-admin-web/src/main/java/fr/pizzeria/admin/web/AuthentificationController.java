@@ -22,7 +22,7 @@ public class AuthentificationController extends HttpServlet {
 		String mail = req.getParameter("mail");
 		String pass = req.getParameter("psd");
 		// si c'est pas bon
-		Boolean a = "admin@pizzeria.fr".equals(mail) && "admin".equals(pass);
+		/*Boolean a = "admin@pizzeria.fr".equals(mail) && "admin".equals(pass);
 		System.out.println(mail);
 		System.out.println(pass);
 		System.out.println(a);
@@ -32,7 +32,6 @@ public class AuthentificationController extends HttpServlet {
 			req.getSession().setAttribute("connecte",a);
 		} else {
 			doGet(req,resp);
-		}
-
+		}*/
 	}
 }
